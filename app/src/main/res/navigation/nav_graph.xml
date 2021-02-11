@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.moviesrxjava.fragments.Home"
+        android:label="Home">
+        <action
+            android:id="@+id/action_home_to_movieDetails"
+            app:destination="@id/movieDetails" />
+        <action
+            android:id="@+id/action_home_to_movies"
+            app:destination="@id/movies"
+            app:exitAnim="@anim/fragment_fade_exit" />
+        <action
+            android:id="@+id/action_home_to_searchMovies"
+            app:destination="@id/searchMovies"
+            app:exitAnim="@anim/fragment_close_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/movies"
+        android:name="com.example.moviesrxjava.fragments.Movies"
+        android:label="Movies">
+        <action
+            android:id="@+id/action_movies_to_movieDetails"
+            app:destination="@id/movieDetails"
+            app:enterAnim="@anim/fragment_open_enter" />
+        <argument
+            android:name="movieCategory"
+            android:defaultValue="Popular"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/actorDetails"
+        android:name="com.example.moviesrxjava.fragments.ActorDetails"
+        android:label="ActorDetails">
+        <action
+            android:id="@+id/action_actorDetails_to_movieDetails2"
+            app:destination="@id/movieDetails" />
+        <argument
+            android:name="personId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetails"
+        android:name="com.example.moviesrxjava.fragments.MoviesDetails"
+        android:label="MovieDetails">
+        <action
+            android:id="@+id/action_movieDetails_to_actorDetails"
+            app:destination="@id/actorDetails"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchMovies"
+        android:name="com.example.moviesrxjava.fragments.SearchMovies"
+        android:label="SearchMovies">
+        <argument
+            android:name="query"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_searchMovies_to_movieDetails"
+            app:destination="@id/movieDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/wishlist"
+        android:name="com.example.moviesrxjava.fragments.WishListFragment"
+        android:label="WishList">
+        <action
+            android:id="@+id/action_wishList_to_movieDetails"
+            app:destination="@id/movieDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/profile2"
+        android:name="com.example.moviesrxjava.fragments.Profile"
+        android:label="Profile" />
+
+</navigation>

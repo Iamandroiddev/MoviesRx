@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_menu"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.moviesrxjava.fragments.Home"
+        android:label="First Fragment"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/wishList"
+        android:name="com.example.moviesrxjava.fragments.WishListFragment"
+        android:label="Second Fragment"
+        tools:layout="@layout/fragment_wish_list" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.moviesrxjava.fragments.Profile"
+        android:label="Third Fragment"
+        tools:layout="@layout/fragment_profile" />
+
+
+</navigation>
