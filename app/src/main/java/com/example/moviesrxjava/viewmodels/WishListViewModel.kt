@@ -1,4 +1,4 @@
-package com.example.moviesrxjava
+package com.example.moviesrxjava.viewmodels
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
@@ -6,7 +6,8 @@ import androidx.lifecycle.ViewModel
 import com.example.moviesrxjava.db.WishListMovie
 import com.example.moviesrxjava.repository.Repository
 
-class WishListViewModel @ViewModelInject constructor(private val repository: Repository) : ViewModel() {
+class WishListViewModel @ViewModelInject constructor(private val repository: Repository) :
+    ViewModel() {
 
     private var wishListMoviesList: LiveData<List<WishListMovie>>? = null
 

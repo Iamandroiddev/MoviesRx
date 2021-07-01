@@ -1,5 +1,10 @@
 package com.example.moviesrxjava.utils
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
+import androidx.annotation.RequiresApi
 import java.util.*
 
 object Constants {
@@ -14,6 +19,18 @@ object Constants {
     const val Upcoming = "Upcoming"
     const val Current = "Current"
     const val TopRated = "TopRated"
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    fun isNetworkAvailable(context: Context): Boolean {
+        val mConnectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        // Test for connection
+        val mCapabilities =
+            mConnectivityManager.getNetworkCapabilities(mConnectivityManager.activeNetwork)
+        return mCapabilities != null &&
+                (mCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
+                        mCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR))
+    }
     val genreMap: HashMap<Int, String>
         get() {
             val genreMap = HashMap<Int, String>()

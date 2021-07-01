@@ -60,9 +60,9 @@
         android:id="@+id/searchMovies"
         android:name="com.example.moviesrxjava.fragments.SearchMovies"
         android:label="SearchMovies">
-        <argument
+       <!-- <argument
             android:name="query"
-            app:argType="string" />
+            app:argType="string" />-->
         <action
             android:id="@+id/action_searchMovies_to_movieDetails"
             app:destination="@id/movieDetails" />
@@ -75,9 +75,5 @@
             android:id="@+id/action_wishList_to_movieDetails"
             app:destination="@id/movieDetails" />
     </fragment>
-    <fragment
-        android:id="@+id/profile2"
-        android:name="com.example.moviesrxjava.fragments.Profile"
-        android:label="Profile" />
 
 </navigation>

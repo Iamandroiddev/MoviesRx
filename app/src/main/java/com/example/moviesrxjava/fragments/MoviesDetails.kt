@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.moviesrxjava.HomeViewModel
+import com.example.moviesrxjava.viewmodels.HomeViewModel
 import com.example.moviesrxjava.R
 import com.example.moviesrxjava.adapters.CastAdapter
 import com.example.moviesrxjava.databinding.FragmentMoviesDetailsBinding
@@ -29,7 +29,7 @@ import java.util.*
 @AndroidEntryPoint
 class MoviesDetails : Fragment() {
 
-    companion object{
+    companion object {
         private val TAG = "MovieDetails"
     }
 
@@ -38,11 +38,11 @@ class MoviesDetails : Fragment() {
     private var movieId: Int? = null
     private var queryMap: HashMap<String, String>? = null
     private var temp: String? = null
-    private  var videoId:String? = null
+    private var videoId: String? = null
     private var adapter: CastAdapter? = null
     private var castList: ArrayList<Cast>? = null
     private var hour = 0
-    private  var min:Int = 0
+    private var min: Int = 0
     private var mMovie: Movie? = null
     private var inWishList = false
     private val videos: ArrayList<Video>? = null
@@ -55,6 +55,7 @@ class MoviesDetails : Fragment() {
         binding = FragmentMoviesDetailsBinding.inflate(inflater, container, false)
         return binding!!.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]

@@ -12,7 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    var binding: ActivityMainBinding? = null
+    lateinit var binding: ActivityMainBinding
     var navController: NavController? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,11 +22,11 @@ class MainActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding!!.root)
+        setContentView(binding.root)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
 
         navController =navHostFragment.navController
-        binding!!.smoothBar.onItemSelected = {i->
+        binding.smoothBar.onItemSelected = {i->
             when (i) {
                 0 -> {
                     navController!!.navigate(R.id.home)
@@ -34,9 +34,9 @@ class MainActivity : AppCompatActivity() {
                 1 -> {
                     navController!!.navigate(R.id.wishlist)
                 }
-               /* 2 -> {
-                    navController!!.navigate(R.id.profile2)
-                }*/
+                2 -> {
+                    navController!!.navigate(R.id.searchMovies)
+                }
             }
 
         }
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         val menuInflater = menuInflater
         menuInflater.inflate(R.menu.bottom_nav_menu, menu)
         val navController = Navigation.findNavController(this, R.id.fragment)
-        binding!!.smoothBar.setupWithNavController(menu!!, navController)
+        binding.smoothBar.setupWithNavController(menu!!, navController)
         return true
     }
 }

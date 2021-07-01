@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/home"
-        android:title="Home"
-        android:icon="@drawable/home"/>
-    <item android:id="@+id/wishList"
-        android:title="WishList"
-        android:icon="@drawable/wishlist"/>
+    <item
+        android:id="@+id/home_movie"
+        android:icon="@drawable/home"
+        android:title="Home" />
+    <item
+        android:id="@+id/wishList_movie"
+        android:icon="@drawable/wishlist"
+        android:title="WishList" />
+    <item
+        android:id="@+id/search_movie"
+        android:icon="@drawable/ic_search"
+        android:title="Search"/>
 </menu>

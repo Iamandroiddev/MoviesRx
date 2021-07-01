@@ -1,8 +1,7 @@
-package com.example.moviesrxjava
+package com.example.moviesrxjava.viewmodels
 
 import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.moviesrxjava.db.WishListMovie

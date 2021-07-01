@@ -6,10 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.moviesrxjava.WishListViewModel
+import com.example.moviesrxjava.viewmodels.WishListViewModel
 import com.example.moviesrxjava.adapters.WishListAdapter
 import com.example.moviesrxjava.databinding.FragmentWishListBinding
 import com.example.moviesrxjava.db.WishListMovie

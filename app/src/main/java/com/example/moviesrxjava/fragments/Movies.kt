@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.moviesrxjava.HomeViewModel
 import com.example.moviesrxjava.adapters.CategoryMoviesAdapter
 import com.example.moviesrxjava.databinding.FragmentMoviesBinding
 import com.example.moviesrxjava.models.Movie
 import com.example.moviesrxjava.utils.Constants
+import com.example.moviesrxjava.viewmodels.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
@@ -66,10 +66,22 @@ class Movies : Fragment() {
 
     private fun getMoviesList() {
         when (moviesCategory) {
-            Constants.Current -> viewModel!!.getCurrentlyShowingMovies(queryMap!!)
-            Constants.Upcoming -> viewModel!!.getUpcomingMovies(queryMap!!)
-            Constants.TopRated -> viewModel!!.getTopRatedMovies(queryMap!!)
-            Constants.Popular -> viewModel!!.getPopularMovies(queryMap!!)
+            Constants.Current -> {
+                viewModel!!.getCurrentlyShowingMovies(queryMap!!)
+                binding!!.moviesCategoryTitle.text = Constants.Current
+            }
+            Constants.Upcoming -> {
+                viewModel!!.getUpcomingMovies(queryMap!!)
+                binding!!.moviesCategoryTitle.text = Constants.Upcoming
+            }
+            Constants.TopRated -> {
+                viewModel!!.getTopRatedMovies(queryMap!!)
+                binding!!.moviesCategoryTitle.text = Constants.TopRated
+            }
+            Constants.Popular -> {
+                viewModel!!.getPopularMovies(queryMap!!)
+                binding!!.moviesCategoryTitle.text = Constants.Popular
+            }
         }
     }
 

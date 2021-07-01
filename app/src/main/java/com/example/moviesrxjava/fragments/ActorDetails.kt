@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.moviesrxjava.HomeViewModel
+import com.example.moviesrxjava.viewmodels.HomeViewModel
 import com.example.moviesrxjava.adapters.KnownForMoviesAdapter
 import com.example.moviesrxjava.databinding.FragmentActorDetailsBinding
 import com.example.moviesrxjava.models.Movie

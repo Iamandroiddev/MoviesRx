@@ -3,67 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#323333">
+    android:background="@color/colorBackGround">
 
-    <RelativeLayout
-        android:id="@+id/searchLayout"
-        android:layout_width="match_parent"
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/searchKeyword"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="5dp"
-            android:layout_toLeftOf="@id/filterSearch"
-            android:background="@drawable/search_edit_text_bg"
-            android:gravity="center_vertical"
-            android:hint="Search"
-            android:imeOptions="actionSearch"
-            android:inputType="text"
-            android:paddingLeft="20dp"
-            android:paddingTop="5dp"
-            android:paddingRight="50dp"
-            android:paddingBottom="5dp"
-            android:textColor="#fff"
-            android:textColorHint="#fff" />
-
-        <ImageView
-            android:id="@+id/searchMovie"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginRight="40dp"
-            android:layout_toLeftOf="@id/filterSearch"
-            android:src="@drawable/ic_search_black_24dp" />
-
-        <ImageView
-            android:id="@+id/filterSearch"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="45dp"
-            android:layout_marginRight="30dp"
-            android:src="@drawable/ic_tune_black_24dp" />
-    </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/ns1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
         android:fillViewport="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchLayout">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <RelativeLayout
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -71,120 +39,140 @@
                 android:id="@+id/currentlyShowing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 android:text="Currently Showing"
                 android:textColor="#fff"
-                android:textSize="22dp"
-                android:textStyle="bold"/>
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/layout1"
+                app:layout_constraintTop_toTopOf="@id/layout1" />
 
-            <TextView
+            <ImageView
                 android:id="@+id/viewAllCurrent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
-                android:text="View All"
-                android:textColor="#fff" />
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/ic_arrow_view_all"
+                app:layout_constraintBottom_toBottomOf="@id/currentlyShowing"
+                app:layout_constraintEnd_toEndOf="@id/layout1"
+                app:layout_constraintTop_toTopOf="@id/currentlyShowing" />
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/currentlyShowingViewPager"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_below="@+id/currentlyShowing"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp" />
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/currentlyShowing" />
 
             <TextView
                 android:id="@+id/upcomingShowing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/currentlyShowingViewPager"
-                android:layout_margin="10dp"
-                android:text="Upcoming "
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Upcoming movies "
                 android:textColor="#fff"
-                android:textSize="22dp"
-                android:textStyle="bold" />
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/layout1"
+                app:layout_constraintTop_toBottomOf="@id/currentlyShowingViewPager" />
 
-            <TextView
+            <ImageView
                 android:id="@+id/viewAllUpcoming"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/currentlyShowingViewPager"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
-                android:text="View All"
-                android:textColor="#fff" />
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/ic_arrow_view_all"
+                app:layout_constraintBottom_toBottomOf="@id/upcomingShowing"
+                app:layout_constraintEnd_toEndOf="@id/layout1"
+                app:layout_constraintTop_toTopOf="@id/upcomingShowing" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/upcomingRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/upcomingShowing"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="5dp" />
+                android:layout_margin="20dp"
+                app:layout_constraintEnd_toEndOf="@id/layout1"
+                app:layout_constraintStart_toStartOf="@id/layout1"
+                app:layout_constraintTop_toBottomOf="@id/upcomingShowing" />
 
             <TextView
                 android:id="@+id/popular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/upcomingRecyclerView"
-                android:layout_margin="10dp"
-                android:text="Popular"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Popular movies "
                 android:textColor="#fff"
-                android:textSize="22dp"
-                android:textStyle="bold" />
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/layout1"
+                app:layout_constraintTop_toBottomOf="@id/upcomingRecyclerView" />
 
-            <TextView
+            <ImageView
                 android:id="@+id/viewAllPopular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/upcomingRecyclerView"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
-                android:text="View All"
-                android:textColor="#fff" />
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/ic_arrow_view_all"
+                app:layout_constraintBottom_toBottomOf="@id/popular"
+                app:layout_constraintEnd_toEndOf="@id/layout1"
+                app:layout_constraintTop_toTopOf="@id/popular" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/popularRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/popular"
-                android:layout_margin="5dp" />
+                android:layout_margin="20dp"
+                app:layout_constraintEnd_toEndOf="@id/layout1"
+                app:layout_constraintStart_toStartOf="@id/layout1"
+                app:layout_constraintTop_toBottomOf="@id/popular" />
 
             <TextView
                 android:id="@+id/topRated"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/popularRecyclerView"
-                android:layout_margin="10dp"
-                android:text="Top Rated"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Top-rated movies"
                 android:textColor="#fff"
-                android:textSize="22dp"
-                android:textStyle="bold" />
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/layout1"
+                app:layout_constraintTop_toBottomOf="@id/popularRecyclerView" />
 
-            <TextView
+            <ImageView
                 android:id="@+id/viewAllTopRated"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/popularRecyclerView"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
-                android:text="View All"
-                android:textColor="#fff" />
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/ic_arrow_view_all"
+                app:layout_constraintBottom_toBottomOf="@id/topRated"
+                app:layout_constraintEnd_toEndOf="@id/layout1"
+                app:layout_constraintTop_toTopOf="@id/topRated" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/topRatedRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/topRated"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="70dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"/>
-        </RelativeLayout>
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="100dp"
+                app:layout_constraintBottom_toBottomOf="@id/layout1"
+                app:layout_constraintEnd_toEndOf="@id/layout1"
+                app:layout_constraintStart_toStartOf="@id/layout1"
+                app:layout_constraintTop_toBottomOf="@id/topRated" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
